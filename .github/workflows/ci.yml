@@ -91,6 +91,13 @@ jobs:
           format: cyclonedx-json
           output: sbom.json
 
+      - name: Upload SBOM Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-cyclonedx-json
+          path: sbom.json
+          retention-days: 5
+
       - name: Sign the container image with Cosign (Keyless)
         uses: sigstore/cosign-installer@main
       - run: |
