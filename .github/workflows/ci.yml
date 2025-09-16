@@ -90,6 +90,7 @@ jobs:
           image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}
           format: cyclonedx-json
           output: sbom.json
+          upload-artifact: false
 
       - name: Upload SBOM Artifact
         uses: actions/upload-artifact@v4
