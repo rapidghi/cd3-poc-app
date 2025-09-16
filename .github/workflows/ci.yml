@@ -65,10 +65,11 @@ jobs:
             type=sha,prefix=,format=short
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
 
-      - name: Scan image for vulnerabilities with Trivy
+      - name: Scan repository for vulnerabilities with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: '.'
+          scan-type: 'fs'
+          scan-ref: '.'
           format: 'sarif'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
