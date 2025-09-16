@@ -1,4 +1,5 @@
 name: CD3 PoC CI Pipeline
+name: CD3 PoC CI Pipeline
 
 on:
   push:
