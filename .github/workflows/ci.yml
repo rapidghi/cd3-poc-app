@@ -84,11 +84,11 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Generate SBOM
-        uses: anchore/syft-action@v0
+        uses: anchore/syft-action@v0.15.0
         with:
-          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}
-          format: cyclonedx-json
-          output: sbom.json
+         image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}
+         format: cyclonedx-json
+         output: sbom.json
 
       - name: Sign the container image with Cosign (Keyless)
         uses: sigstore/cosign-installer@main
